@@ -447,6 +447,15 @@ if __name__ == "__main__":
     loop = asyncio.get_event_loop()
     loop.create_task(main())
     loop.run_forever()    
+# --- Test message to verify Telegram connection ---
+import asyncio
+from telegram import Bot
+
+async def test_message():
+    bot = Bot(token=os.getenv("TG_BOT_TOKEN"))
+    await bot.send_message(chat_id=os.getenv("TG_CHAT_ID"), text="🚀 Bot is live and connected successfully!")
+
+asyncio.run(test_message())
 
 
 

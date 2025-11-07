@@ -4,3 +4,4 @@ asyncio
 requests
 pandas
 ccxt
+pandas_ta

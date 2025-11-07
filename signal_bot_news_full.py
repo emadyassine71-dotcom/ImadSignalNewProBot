@@ -442,9 +442,10 @@ async def main():
     asyncio.create_task(worker(app, CHAT, cfg))
     await app.run_polling()
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     import asyncio
     loop = asyncio.get_event_loop()
     loop.create_task(main())
     loop.run_forever()
+
 

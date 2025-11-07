@@ -452,15 +452,21 @@ from telegram import Bot
 import os
 
 async def main():
-    bot = Bot(token=os.getenv("TG_BOT_TOKEN"))
+    print("🔄 Starting bot test...")  # لتأكيد التشغيل
+    bot_token = os.getenv("TG_BOT_TOKEN")
+    chat_id = os.getenv("TG_CHAT_ID")
+    print("Token:", bot_token[:10], "...")  # جزء من التوكن فقط
+    print("Chat ID:", chat_id)
     try:
-        await bot.send_message(chat_id=os.getenv("TG_CHAT_ID"), text="✅ Bot connected successfully to Telegram!")
-        print("Message sent to Telegram successfully ✅")
+        bot = Bot(token=bot_token)
+        await bot.send_message(chat_id=chat_id, text="✅ Bot connected successfully to Telegram!")
+        print("✅ Message sent successfully")
     except Exception as e:
-        print("❌ Telegram send failed:", e)
+        print("❌ Error sending message:", e)
 
 if _name_ == "_main_":
     asyncio.run(main())
+
 
 
 
